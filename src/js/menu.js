@@ -67,4 +67,5 @@ const menu = [
 
   const veganOptions = menu.filter((item) => item.vegetarian === true); //the arrow function return whats inside the function
   const instockOptions = menu.filter((item) => item.inStock === true);
+  
   export{veganOptions, instockOptions, menu};
