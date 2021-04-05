@@ -1,5 +1,5 @@
 import {DOMSelectors} from ". /DOM";
-import {menu, veganOptions,  instockOptions} from "./menu";
+import {menu, veganOptions, instockOptions} from "./menu";
 const init = function (){
     menu.forEach((item) =>//for every item, it will insert HTML that we will use to show
       DOMSelectors.displayContainer.insertAdjacentHTML(
@@ -46,4 +46,4 @@ const init = function (){
   init();
   
   const veganOptions = menu.filter((item) => item.vegetarian === true)
-  console.log(veganOptions)
+  console.log(veganOptions);
