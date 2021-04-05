@@ -1,7 +1,10 @@
 DOMSelectors = {
-  displayContainer: document.querySelector(".container")
+  displayContainer: document.querySelector(".container"),
+  resetButton: document.querySelector(".reset-btn"),
+  fullMenuButton: document.querySelector(".full-btn"),
+  inStockButton: document.querySelector(".stock-btn"),
+  vegetarianButton: document.querySelector(".veg-btn"),
 };
-console.log(DOMSelectors.displayContainer);
 
 const menu = [
     {
@@ -90,4 +93,31 @@ const menu = [
    ) 
     );
   };
+
+  DOMSelectors.vegetarianButton.addEventListener("click", function(e){
+    DOMSelectors.displayContainer.innerHTML = "";
+    veganOptions.forEach((item) => {//add the array method for the vegan 
+      DOMSelectors.displayContainer.insertAdjacentHTML(
+        "afterbegin",
+        `<ul class="item-list">
+            <li class="item-name item-value">${item.name}</li>
+            <li class="item-price item-value">${item.price}</li>
+            <li class="item-vegetarian item-value">${item.vegitarian}</li>
+            <li class="item-image">
+         <img
+           class="item-image"
+           src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+           alt=""
+         />
+       </li>
+       <li class="item-in-stock item-value">In Stock</li>
+     </ul>`
+     ); 
+    })
+    
+  }); 
   init();
+
+  const veganOptions = menu.filter((item) => item.vegetarian === true); //the arrow function return whats inside the function
+  const instockOptions = menu.filter((item) => item.inStock === true);
+  console.log(veganOptions);
