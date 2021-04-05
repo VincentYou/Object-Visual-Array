@@ -1,6 +1,5 @@
-import {DOMSelectors} from "./DOM";
+import {DOMSelectors} from ". /DOM";
 import {menu, veganOptions,  instockOptions} from "./menu";
-
 const init = function (){
     menu.forEach((item) =>//for every item, it will insert HTML that we will use to show
       DOMSelectors.displayContainer.insertAdjacentHTML(
@@ -18,13 +17,13 @@ const init = function (){
      </li>
      <li class="item-in-stock item-value">${item.inStock}</li>
    </ul>`
-   ) 
+      ) 
     );
   };
 
   DOMSelectors.vegetarianButton.addEventListener("click", function(e){
     DOMSelectors.displayContainer.innerHTML = "";
-    veganOptions.forEach((item) => {//add the array method for the vegan 
+    veganOptions.forEach((item) => {          //add the array method for the vegan 
       DOMSelectors.displayContainer.insertAdjacentHTML(
         "afterbegin",
         `<ul class="item-list">
@@ -45,3 +44,6 @@ const init = function (){
     
   }); 
   init();
+  
+  const veganOptions = menu.filter((item) => item.vegetarian === true)
+  console.log(veganOptions)
