@@ -1,4 +1,8 @@
-console.log("check");
+DOMSelectors = {
+  displayContainer: document.querySelector(".container")
+};
+console.log(DOMSelectors.displayContainer);
+
 const menu = [
     {
       name: "Pizza Slice",
@@ -65,3 +69,25 @@ const menu = [
       inStock: true,
     },
   ];
+
+  const init = function (){
+    menu.forEach((item) =>//for every item, it will insert HTML that we will use to show
+      DOMSelectors.displayContainer.insertAdjacentHTML(
+      "afterbegin",
+      `<ul class="item-list">
+          <li class="item-name item-value">${item.name}</li>
+          <li class="item-price item-value">${item.price}</li>
+          <li class="item-vegetarian item-value">${item.vegitarian}</li>
+          <li class="item-image">
+       <img
+         class="item-image"
+         src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+         alt=""
+       />
+     </li>
+     <li class="item-in-stock item-value">In Stock</li>
+   </ul>`
+   ) 
+    );
+  };
+  init();
