@@ -37,7 +37,7 @@ const init = function (){
            alt=""
          />
        </li>
-       <li class="item-in-stock item-value">${item.inStock}</li>
+       <li class="item-in-stock item-value"></li>
      </ul>`
      ); 
     })
